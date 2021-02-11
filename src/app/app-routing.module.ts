@@ -13,6 +13,10 @@ const routes: Routes = [
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
   {
+    path: 'register',
+    loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
+  },
+  {
     path: 'user-detail/:id',
     loadChildren: () => import('./user-detail/user-detail.module').then( m => m.UserDetailPageModule),
     canActivate: [ IsSignedInGuard ]
@@ -22,6 +26,11 @@ const routes: Routes = [
     redirectTo: 'login',
     pathMatch: 'full'
   },
+  {
+    path: 'register',
+    loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
+  },
+
 
 ];
 

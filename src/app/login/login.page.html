@@ -25,14 +25,24 @@
     </ion-item>
   </ion-list>
 </form>
+  <ion-button id="signin-button" expand="full"
+              (click)="seConnecter()" [disabled]="!loginForm.form.valid">
+    Se connecter
+    <ion-icon slot="end" name="log-in-outline"></ion-icon>
+  </ion-button>
+
+  <ion-button id="register-button" expand="full" color="warning"
+              (click)="register()" >
+    S'inscrire
+    <ion-icon slot="end" name="log-in-outline"></ion-icon>
+  </ion-button>
+
+
 </ion-content>
 
 <ion-footer>
   <ion-toolbar>
-    <ion-button id="signin-button" expand="full"
-      (click)="seConnecter()" [disabled]="!loginForm.form.valid">
-      Se connecter
-      <ion-icon slot="end" name="log-in-outline"></ion-icon>
-    </ion-button>
+
+
   </ion-toolbar>
 </ion-footer>

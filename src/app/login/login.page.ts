@@ -42,6 +42,9 @@ export class LoginPage implements OnInit, OnDestroy {
       }
     );
   }
+  register(){
+    this.router.navigateByUrl('register');
+  }
 
   ngOnDestroy(): void {
     this.login$.unsubscribe();
