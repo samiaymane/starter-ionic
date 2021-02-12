@@ -1,6 +1,9 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>User Detail</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -8,6 +11,12 @@
   <ion-card *ngIf="userDetail$ | async as user">
     <ion-card-header>
       <ion-card-title>{{user.first_name}} {{user.last_name}}</ion-card-title>
+      <ion-button (click)="editModal()">
+        <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+      </ion-button>
+      <ion-button (click)="removeModal()" color="danger">
+        <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+      </ion-button>
     </ion-card-header>
 
     <ion-card-content>

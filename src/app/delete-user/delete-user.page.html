@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Deleting user</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <h1>Êtes-vous sûr de vouloir supprimer cet utilisateur ?</h1>
+  <ion-button (click)="removeUser()" expand="full" color="warning">Oui</ion-button>
+  <ion-button (click)="closeModal()" expand="full">Non</ion-button>
+</ion-content>

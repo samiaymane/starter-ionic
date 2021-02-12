@@ -2,8 +2,13 @@
   <ion-card (click)="selectedUser.emit(user.id)">
     <ion-card-header>
       <ion-card-title>{{ user.first_name }} {{ user.last_name }}</ion-card-title>
+      <ion-button (click)="$event.stopPropagation();editModal(user.id)">
+        <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+      </ion-button>
+      <ion-button (click)="$event.stopPropagation();removeModal(user.id)" color="danger">
+        <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+      </ion-button>
     </ion-card-header>
-
     <ion-card-content>
       <img [src]="user.avatar">
     </ion-card-content>

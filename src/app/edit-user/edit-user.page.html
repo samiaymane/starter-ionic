@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Editing user</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form #editUserForm="ngForm">
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating">Nom</ion-label>
+        <ion-input id="name-input" name="name" type="text"
+                   [(ngModel)]="name"
+                   #nameInput=ngModel
+                   required
+        ></ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating">Poste</ion-label>
+        <ion-input id="job-input" name="job" type="text"
+                   [(ngModel)]="job"
+                   #jobInput=ngModel
+                   required
+        ></ion-input>
+      </ion-item>
+    </ion-list>
+  </form>
+  <ion-button id="submit-button" expand="full"
+              (click)="editUser()" [disabled]="!editUserForm.form.valid">
+    Modifier
+  </ion-button>
+</ion-content>

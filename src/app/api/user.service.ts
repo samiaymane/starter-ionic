@@ -42,7 +42,25 @@ export class UserService {
 
   getUserDetail(id: number): Observable<any> {
     return this.httpApi.get(`https://reqres.in/api/users/${id}`).pipe(
-      map((response: any) => response?.data)
+        map((response: any) => response?.data)
+    );
+  }
+
+  patchUser(id: number, name: string, job: string): Observable<any> {
+    return this.httpApi.patch(`https://reqres.in/api/users/${id}`,
+        {
+          name,
+          job
+        }).pipe(
+        map((response: any) => response?.name),
+        catchError(() => of(false))
+    );
+  }
+
+  deleteUser(id: number){
+    return this.httpApi.delete(`https://reqres.in/api/users/${id}`).pipe(
+        map( (response: any) => true ),
+        catchError(() => of(false))
     );
   }
 
