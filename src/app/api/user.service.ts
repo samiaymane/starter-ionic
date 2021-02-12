@@ -33,6 +33,9 @@ export class UserService {
         catchError(() => of(false))
     );
   }
+  logout(){
+    localStorage.removeItem('token');
+  }
 
   getUserList() {
     return this.httpApi.get('https://reqres.in/api/users?page=1').pipe(

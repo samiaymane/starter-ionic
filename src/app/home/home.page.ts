@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { UserService } from 'src/app/api/user.service';
-import { User } from 'src/app/home/user-list/user.interface';
+import {LogoutPage} from '../logout/logout.page';
+import {ModalController} from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +16,8 @@ export class HomePage implements OnInit {
 
   constructor(
     public router: Router,
-    public userService: UserService
+    public userService: UserService,
+    public modalController: ModalController
   ) {}
 
   async selectedUser(id: number) {
@@ -25,5 +27,16 @@ export class HomePage implements OnInit {
   ngOnInit(): void {
     this.userList$ = this.userService.getUserList();
   }
-
+  async logoutModal() {
+    const logoutModal = await this.modalController.create({
+      component: LogoutPage,
+      componentProps : {
+      }
+    });
+    return await logoutModal.present();
+    const closed = await logoutModal.onDidDismiss();
+    if (closed){
+      location.reload();
+    }
+  }
 }

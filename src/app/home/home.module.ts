@@ -6,6 +6,7 @@ import { UserListComponent } from 'src/app/home/user-list/user-list.component';
 import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
+import {LogoutPageModule} from '../logout/logout.module';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { HomePageRoutingModule } from './home-routing.module';
     CommonModule,
     FormsModule,
     IonicModule,
-    HomePageRoutingModule
+    HomePageRoutingModule,
+    LogoutPageModule
   ],
   declarations: [HomePage, UserListComponent]
 })

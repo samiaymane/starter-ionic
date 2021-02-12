@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {AlertController, ModalController} from "@ionic/angular";
-import {UserService} from "../api/user.service";
+import {AlertController, ModalController} from '@ionic/angular';
+import {UserService} from '../api/user.service';
 
 @Component({
   selector: 'app-delete-user',
@@ -9,10 +9,11 @@ import {UserService} from "../api/user.service";
 })
 export class DeleteUserPage implements OnInit {
 
-  @Input() user_id :number;
+    // tslint:disable-next-line:variable-name
+  @Input() user_id: number;
 
   constructor(
-      private modalController : ModalController,
+      private modalController: ModalController,
       public userService: UserService,
       public alertCtrl: AlertController
   ) { }
@@ -28,17 +29,17 @@ export class DeleteUserPage implements OnInit {
     this.userService.deleteUser(this.user_id).subscribe(
         async success => {
           const alert = await this.alertCtrl.create({
-            header: success ? 'Sucess':'Error',
-            message: success ? 'User has been removed !':'Error while removing user.',
+            header: success ? 'Sucess' : 'Error',
+            message: success ? 'User has been removed !' : 'Error while removing user.',
             buttons: ['OK']
           });
           await alert.present();
-          let closed = await alert.onDidDismiss();
-          if(closed){
+          const closed = await alert.onDidDismiss();
+          if (closed){
             await this.closeModal();
           }
         }
-    )
+    );
   }
 
 }

@@ -3,6 +3,13 @@
     <ion-title>
       Home
     </ion-title>
+
+        <ion-button id="logout-button" slot="end"
+                    (click)="$event.stopPropagation();logoutModal()" >
+          Logout
+          <ion-icon slot="end" name="log-out-outline"></ion-icon>
+        </ion-button>
+
   </ion-toolbar>
 </ion-header>
 
@@ -12,6 +19,7 @@
       <ion-title size="large">Home</ion-title>
     </ion-toolbar>
   </ion-header>
+
 
   <app-user-list [userList]="userList$ | async" (selectedUser)="selectedUser($event)"></app-user-list>
 </ion-content>

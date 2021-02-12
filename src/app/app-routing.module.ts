@@ -29,7 +29,8 @@ const routes: Routes = [
   {
     path: 'register',
     loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
-  },  {
+  },
+  {
     path: 'edit-user',
     loadChildren: () => import('./edit-user/edit-user.module').then( m => m.EditUserPageModule)
   },
@@ -37,8 +38,10 @@ const routes: Routes = [
     path: 'delete-user',
     loadChildren: () => import('./delete-user/delete-user.module').then( m => m.DeleteUserPageModule)
   },
-
-
+  {
+    path: 'logout',
+    loadChildren: () => import('./logout/logout.module').then(m => m.LogoutPageModule)
+  }
 
 ];
 
